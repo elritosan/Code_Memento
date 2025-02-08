@@ -1,3 +1,4 @@
+# Models\administrador_guardados.py
 class ClassAdministradorGuardados:
     def __init__(self):
         self.historial = []

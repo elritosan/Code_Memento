@@ -1,4 +1,4 @@
-# jugador.py
+# Models\jugador.py
 from Models.memento import ClassMemento
 
 class ClassJugador:
