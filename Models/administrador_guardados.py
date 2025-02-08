@@ -1,4 +1,3 @@
-# administrador_guardados.py
 class ClassAdministradorGuardados:
     def __init__(self):
         self.historial = []
@@ -8,14 +7,21 @@ class ClassAdministradorGuardados:
         print(f"✅ Progreso guardado en la posición {len(self.historial) - 1} el {memento.get_estado()['timestamp']}.")
 
     def listar_guardados(self):
-        """Muestra la lista de guardados disponibles con fecha y hora."""
+        """Devuelve una lista de los guardados disponibles con fecha y hora."""
         if not self.historial:
             print("⚠️ No hay guardados disponibles.")
-            return
-        print("\n📜 Lista de guardados:")
-        for i, memento in enumerate(self.historial):
-            estado = memento.get_estado()
-            print(f"📌 [{i}] {estado['timestamp']} - Vida={estado['vida']}, Nivel={estado['nivel']}, Experiencia={estado['experiencia']}")
+            return []
+        
+        lista = [
+            f"[{i}] {memento.get_estado()['timestamp']} - Vida={memento.get_estado()['vida']}, Nivel={memento.get_estado()['nivel']}, Experiencia={memento.get_estado()['experiencia']}"
+            for i, memento in enumerate(self.historial)
+        ]
+        
+        print("\n📜 Lista de guardados disponibles desde listar_guardados():")
+        for item in lista:
+            print(item)  # Verifica que la lista contenga elementos
+        
+        return lista
 
     def restaurar(self, indice):
         """Restaura un estado específico según el índice elegido."""
